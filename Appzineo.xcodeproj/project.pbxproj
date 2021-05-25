@@ -3,27 +3,122 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DEA131F76DE25AE75D18EA6 /* Pods_Appzineo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B0F6E1F29AA947F2A1461F /* Pods_Appzineo.framework */; };
 		E825B2B52656D5B00006280D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825B2B42656D5B00006280D /* AppDelegate.swift */; };
-		E825B2B72656D5B00006280D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825B2B62656D5B00006280D /* SceneDelegate.swift */; };
-		E825B2B92656D5B00006280D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825B2B82656D5B00006280D /* ViewController.swift */; };
-		E825B2BC2656D5B00006280D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E825B2BA2656D5B00006280D /* Main.storyboard */; };
 		E825B2BE2656D5B10006280D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E825B2BD2656D5B10006280D /* Assets.xcassets */; };
 		E825B2C12656D5B10006280D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E825B2BF2656D5B10006280D /* LaunchScreen.storyboard */; };
+		E859D739265822DD00A79C88 /* NewPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D70D265822DD00A79C88 /* NewPetViewController.swift */; };
+		E859D73A265822DD00A79C88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D70E265822DD00A79C88 /* HomeViewController.swift */; };
+		E859D73B265822DE00A79C88 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D70F265822DD00A79C88 /* HomeNavigationController.swift */; };
+		E859D73C265822DE00A79C88 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D711265822DD00A79C88 /* Storable.swift */; };
+		E859D73D265822DE00A79C88 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D712265822DD00A79C88 /* Database.swift */; };
+		E859D73E265822DE00A79C88 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D715265822DD00A79C88 /* Owner.swift */; };
+		E859D73F265822DE00A79C88 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D716265822DD00A79C88 /* Address.swift */; };
+		E859D740265822DE00A79C88 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D718265822DD00A79C88 /* PushNotification.swift */; };
+		E859D741265822DE00A79C88 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D71A265822DD00A79C88 /* Gender.swift */; };
+		E859D742265822DE00A79C88 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D71B265822DD00A79C88 /* Entity.swift */; };
+		E859D743265822DE00A79C88 /* Breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = E859D71D265822DD00A79C88 /* Breeds.json */; };
+		E859D744265822DE00A79C88 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D71F265822DD00A79C88 /* UISegmentedControlExtensions.swift */; };
+		E859D745265822DE00A79C88 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D720265822DD00A79C88 /* UIViewControllerExtensions.swift */; };
+		E859D746265822DE00A79C88 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D721265822DD00A79C88 /* UIViewExtensions.swift */; };
+		E859D747265822DE00A79C88 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D722265822DD00A79C88 /* DateExtensions.swift */; };
+		E859D748265822DE00A79C88 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D723265822DD00A79C88 /* CalendarExtensions.swift */; };
+		E859D749265822DE00A79C88 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D725265822DD00A79C88 /* PickerTextField.swift */; };
+		E859D74A265822DE00A79C88 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D726265822DD00A79C88 /* JSONManager.swift */; };
+		E859D74B265822DE00A79C88 /* AppzineoModalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D727265822DD00A79C88 /* AppzineoModalNavigationController.swift */; };
+		E859D74C265822DE00A79C88 /* HorizontalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D728265822DD00A79C88 /* HorizontalPickerView.swift */; };
+		E859D74D265822DE00A79C88 /* PetsCoSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D729265822DD00A79C88 /* PetsCoSegmentedControl.swift */; };
+		E859D74E265822DE00A79C88 /* PetsCoArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D72A265822DD00A79C88 /* PetsCoArrowButton.swift */; };
+		E859D74F265822DE00A79C88 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D72C265822DD00A79C88 /* Pet.swift */; };
+		E859D750265822DE00A79C88 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D72D265822DD00A79C88 /* Breed.swift */; };
+		E859D752265822DE00A79C88 /* ScheduleNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D730265822DD00A79C88 /* ScheduleNavigationController.swift */; };
+		E859D753265822DE00A79C88 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D731265822DD00A79C88 /* MonthCollectionViewCell.swift */; };
+		E859D754265822DE00A79C88 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D732265822DD00A79C88 /* EventTableViewCell.swift */; };
+		E859D755265822DE00A79C88 /* NewScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D733265822DD00A79C88 /* NewScheduleViewController.swift */; };
+		E859D757265822DE00A79C88 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D735265822DD00A79C88 /* Schedule.swift */; };
+		E859D758265822DE00A79C88 /* RepeatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D736265822DD00A79C88 /* RepeatType.swift */; };
+		E859D759265822DE00A79C88 /* ScheduleLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D737265822DD00A79C88 /* ScheduleLocationViewController.swift */; };
+		E859D75A265822DE00A79C88 /* SchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859D738265822DD00A79C88 /* SchedulesViewController.swift */; };
+		E8A2940E2658563200388B66 /* PetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2940D2658563200388B66 /* PetCollectionViewCell.swift */; };
+		E8A29410265BE66300388B66 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2940F265BE66300388B66 /* ScheduleViewModel.swift */; };
+		E8A29412265BEAED00388B66 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A29411265BEAED00388B66 /* HomeViewModel.swift */; };
+		E8A29414265C02FD00388B66 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A29413265C02FD00388B66 /* SectionHeader.swift */; };
+		E8A29416265C043900388B66 /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A29415265C043900388B66 /* SectionData.swift */; };
+		E8A29418265C228B00388B66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8A29417265C228B00388B66 /* GoogleService-Info.plist */; };
+		E8A2941A265C3CFA00388B66 /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A29419265C3CFA00388B66 /* PetViewModel.swift */; };
+		E8A2941C265C4BE000388B66 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2941B265C4BE000388B66 /* ScheduleCollectionViewCell.swift */; };
+		E8A6DBB9265D43E10070C41D /* PetSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A6DBB8265D43E10070C41D /* PetSectionTableViewCell.swift */; };
+		E8E1174D265811E800E2D5CB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E1174C265811E800E2D5CB /* MainTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E8E117312658104600E2D5CB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		41B0F6E1F29AA947F2A1461F /* Pods_Appzineo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Appzineo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		846B04CD29347DD83AF29215 /* Pods-Appzineo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appzineo.release.xcconfig"; path = "Target Support Files/Pods-Appzineo/Pods-Appzineo.release.xcconfig"; sourceTree = "<group>"; };
+		CDA19BF4A0D283492676AAA7 /* Pods-Appzineo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appzineo.debug.xcconfig"; path = "Target Support Files/Pods-Appzineo/Pods-Appzineo.debug.xcconfig"; sourceTree = "<group>"; };
 		E825B2B12656D5B00006280D /* Appzineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appzineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E825B2B42656D5B00006280D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E825B2B62656D5B00006280D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E825B2B82656D5B00006280D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E825B2BB2656D5B00006280D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E825B2BD2656D5B10006280D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E825B2C02656D5B10006280D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E825B2C22656D5B10006280D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E859D70D265822DD00A79C88 /* NewPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPetViewController.swift; sourceTree = "<group>"; };
+		E859D70E265822DD00A79C88 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E859D70F265822DD00A79C88 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		E859D711265822DD00A79C88 /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		E859D712265822DD00A79C88 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		E859D715265822DD00A79C88 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		E859D716265822DD00A79C88 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		E859D718265822DD00A79C88 /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		E859D71A265822DD00A79C88 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		E859D71B265822DD00A79C88 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		E859D71D265822DD00A79C88 /* Breeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Breeds.json; sourceTree = "<group>"; };
+		E859D71F265822DD00A79C88 /* UISegmentedControlExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtensions.swift; sourceTree = "<group>"; };
+		E859D720265822DD00A79C88 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		E859D721265822DD00A79C88 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		E859D722265822DD00A79C88 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		E859D723265822DD00A79C88 /* CalendarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
+		E859D725265822DD00A79C88 /* PickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
+		E859D726265822DD00A79C88 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		E859D727265822DD00A79C88 /* AppzineoModalNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppzineoModalNavigationController.swift; sourceTree = "<group>"; };
+		E859D728265822DD00A79C88 /* HorizontalPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalPickerView.swift; sourceTree = "<group>"; };
+		E859D729265822DD00A79C88 /* PetsCoSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsCoSegmentedControl.swift; sourceTree = "<group>"; };
+		E859D72A265822DD00A79C88 /* PetsCoArrowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsCoArrowButton.swift; sourceTree = "<group>"; };
+		E859D72C265822DD00A79C88 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		E859D72D265822DD00A79C88 /* Breed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		E859D730265822DD00A79C88 /* ScheduleNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleNavigationController.swift; sourceTree = "<group>"; };
+		E859D731265822DD00A79C88 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
+		E859D732265822DD00A79C88 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E859D733265822DD00A79C88 /* NewScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScheduleViewController.swift; sourceTree = "<group>"; };
+		E859D735265822DD00A79C88 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		E859D736265822DD00A79C88 /* RepeatType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatType.swift; sourceTree = "<group>"; };
+		E859D737265822DD00A79C88 /* ScheduleLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleLocationViewController.swift; sourceTree = "<group>"; };
+		E859D738265822DD00A79C88 /* SchedulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewController.swift; sourceTree = "<group>"; };
+		E8A2940D2658563200388B66 /* PetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8A2940F265BE66300388B66 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		E8A29411265BEAED00388B66 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E8A29413265C02FD00388B66 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		E8A29415265C043900388B66 /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
+		E8A29417265C228B00388B66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8A29419265C3CFA00388B66 /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
+		E8A2941B265C4BE000388B66 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8A6DBB8265D43E10070C41D /* PetSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSectionTableViewCell.swift; sourceTree = "<group>"; };
+		E8E1174C265811E800E2D5CB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +126,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEA131F76DE25AE75D18EA6 /* Pods_Appzineo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		775B70ECCF6B642A52108267 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41B0F6E1F29AA947F2A1461F /* Pods_Appzineo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E825B2A82656D5B00006280D = {
 			isa = PBXGroup;
 			children = (
 				E825B2B32656D5B00006280D /* Appzineo */,
 				E825B2B22656D5B00006280D /* Products */,
+				FED067C9EBA9E79B6280D85B /* Pods */,
+				775B70ECCF6B642A52108267 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +162,159 @@
 		E825B2B32656D5B00006280D /* Appzineo */ = {
 			isa = PBXGroup;
 			children = (
+				E8A29417265C228B00388B66 /* GoogleService-Info.plist */,
+				E859D70B265822DD00A79C88 /* Modules */,
+				E8E1174C265811E800E2D5CB /* MainTabBarViewController.swift */,
 				E825B2B42656D5B00006280D /* AppDelegate.swift */,
-				E825B2B62656D5B00006280D /* SceneDelegate.swift */,
-				E825B2B82656D5B00006280D /* ViewController.swift */,
-				E825B2BA2656D5B00006280D /* Main.storyboard */,
 				E825B2BD2656D5B10006280D /* Assets.xcassets */,
 				E825B2BF2656D5B10006280D /* LaunchScreen.storyboard */,
 				E825B2C22656D5B10006280D /* Info.plist */,
 			);
 			path = Appzineo;
+			sourceTree = "<group>";
+		};
+		E859D70B265822DD00A79C88 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E859D70C265822DD00A79C88 /* Home */,
+				E859D710265822DD00A79C88 /* Database */,
+				E859D713265822DD00A79C88 /* Core */,
+				E859D72F265822DD00A79C88 /* Schedules */,
+			);
+			path = Modules;
+			sourceTree = SOURCE_ROOT;
+		};
+		E859D70C265822DD00A79C88 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E859D70D265822DD00A79C88 /* NewPetViewController.swift */,
+				E859D70E265822DD00A79C88 /* HomeViewController.swift */,
+				E8A6DBB8265D43E10070C41D /* PetSectionTableViewCell.swift */,
+				E8A2941B265C4BE000388B66 /* ScheduleCollectionViewCell.swift */,
+				E8A29419265C3CFA00388B66 /* PetViewModel.swift */,
+				E8A29411265BEAED00388B66 /* HomeViewModel.swift */,
+				E8A2940D2658563200388B66 /* PetCollectionViewCell.swift */,
+				E859D70F265822DD00A79C88 /* HomeNavigationController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E859D710265822DD00A79C88 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E859D711265822DD00A79C88 /* Storable.swift */,
+				E859D712265822DD00A79C88 /* Database.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		E859D713265822DD00A79C88 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E859D714265822DD00A79C88 /* Owner */,
+				E859D716265822DD00A79C88 /* Address.swift */,
+				E859D717265822DD00A79C88 /* Notification */,
+				E859D719265822DD00A79C88 /* Entity */,
+				E859D71C265822DD00A79C88 /* Resources */,
+				E859D71E265822DD00A79C88 /* Extensions */,
+				E859D724265822DD00A79C88 /* Components */,
+				E859D72B265822DD00A79C88 /* Pet */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E859D714265822DD00A79C88 /* Owner */ = {
+			isa = PBXGroup;
+			children = (
+				E859D715265822DD00A79C88 /* Owner.swift */,
+			);
+			path = Owner;
+			sourceTree = "<group>";
+		};
+		E859D717265822DD00A79C88 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				E859D718265822DD00A79C88 /* PushNotification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		E859D719265822DD00A79C88 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E859D71A265822DD00A79C88 /* Gender.swift */,
+				E859D71B265822DD00A79C88 /* Entity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E859D71C265822DD00A79C88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E859D71D265822DD00A79C88 /* Breeds.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E859D71E265822DD00A79C88 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E859D71F265822DD00A79C88 /* UISegmentedControlExtensions.swift */,
+				E859D720265822DD00A79C88 /* UIViewControllerExtensions.swift */,
+				E859D721265822DD00A79C88 /* UIViewExtensions.swift */,
+				E859D722265822DD00A79C88 /* DateExtensions.swift */,
+				E859D723265822DD00A79C88 /* CalendarExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E859D724265822DD00A79C88 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E859D725265822DD00A79C88 /* PickerTextField.swift */,
+				E859D726265822DD00A79C88 /* JSONManager.swift */,
+				E859D727265822DD00A79C88 /* AppzineoModalNavigationController.swift */,
+				E859D728265822DD00A79C88 /* HorizontalPickerView.swift */,
+				E859D729265822DD00A79C88 /* PetsCoSegmentedControl.swift */,
+				E859D72A265822DD00A79C88 /* PetsCoArrowButton.swift */,
+				E8A29413265C02FD00388B66 /* SectionHeader.swift */,
+				E8A29415265C043900388B66 /* SectionData.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E859D72B265822DD00A79C88 /* Pet */ = {
+			isa = PBXGroup;
+			children = (
+				E859D72C265822DD00A79C88 /* Pet.swift */,
+				E859D72D265822DD00A79C88 /* Breed.swift */,
+			);
+			path = Pet;
+			sourceTree = "<group>";
+		};
+		E859D72F265822DD00A79C88 /* Schedules */ = {
+			isa = PBXGroup;
+			children = (
+				E859D730265822DD00A79C88 /* ScheduleNavigationController.swift */,
+				E859D731265822DD00A79C88 /* MonthCollectionViewCell.swift */,
+				E859D732265822DD00A79C88 /* EventTableViewCell.swift */,
+				E859D733265822DD00A79C88 /* NewScheduleViewController.swift */,
+				E859D735265822DD00A79C88 /* Schedule.swift */,
+				E859D736265822DD00A79C88 /* RepeatType.swift */,
+				E859D737265822DD00A79C88 /* ScheduleLocationViewController.swift */,
+				E859D738265822DD00A79C88 /* SchedulesViewController.swift */,
+				E8A2940F265BE66300388B66 /* ScheduleViewModel.swift */,
+			);
+			path = Schedules;
+			sourceTree = "<group>";
+		};
+		FED067C9EBA9E79B6280D85B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CDA19BF4A0D283492676AAA7 /* Pods-Appzineo.debug.xcconfig */,
+				846B04CD29347DD83AF29215 /* Pods-Appzineo.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E825B2C52656D5B10006280D /* Build configuration list for PBXNativeTarget "Appzineo" */;
 			buildPhases = (
+				722C70BBF698518DBB702111 /* [CP] Check Pods Manifest.lock */,
 				E825B2AD2656D5B00006280D /* Sources */,
 				E825B2AE2656D5B00006280D /* Frameworks */,
 				E825B2AF2656D5B00006280D /* Resources */,
+				E8E117312658104600E2D5CB /* Embed Frameworks */,
+				F541EC398B293508D055E71F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,36 +377,109 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A29418265C228B00388B66 /* GoogleService-Info.plist in Resources */,
+				E859D743265822DE00A79C88 /* Breeds.json in Resources */,
 				E825B2C12656D5B10006280D /* LaunchScreen.storyboard in Resources */,
 				E825B2BE2656D5B10006280D /* Assets.xcassets in Resources */,
-				E825B2BC2656D5B00006280D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		722C70BBF698518DBB702111 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Appzineo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F541EC398B293508D055E71F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Appzineo/Pods-Appzineo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Appzineo/Pods-Appzineo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Appzineo/Pods-Appzineo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E825B2AD2656D5B00006280D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E825B2B92656D5B00006280D /* ViewController.swift in Sources */,
+				E859D74B265822DE00A79C88 /* AppzineoModalNavigationController.swift in Sources */,
+				E859D741265822DE00A79C88 /* Gender.swift in Sources */,
+				E859D747265822DE00A79C88 /* DateExtensions.swift in Sources */,
+				E859D740265822DE00A79C88 /* PushNotification.swift in Sources */,
+				E859D744265822DE00A79C88 /* UISegmentedControlExtensions.swift in Sources */,
+				E859D73A265822DD00A79C88 /* HomeViewController.swift in Sources */,
+				E859D73C265822DE00A79C88 /* Storable.swift in Sources */,
+				E859D74E265822DE00A79C88 /* PetsCoArrowButton.swift in Sources */,
+				E8E1174D265811E800E2D5CB /* MainTabBarViewController.swift in Sources */,
+				E859D74C265822DE00A79C88 /* HorizontalPickerView.swift in Sources */,
+				E8A29412265BEAED00388B66 /* HomeViewModel.swift in Sources */,
+				E859D74F265822DE00A79C88 /* Pet.swift in Sources */,
+				E859D745265822DE00A79C88 /* UIViewControllerExtensions.swift in Sources */,
+				E859D753265822DE00A79C88 /* MonthCollectionViewCell.swift in Sources */,
+				E859D75A265822DE00A79C88 /* SchedulesViewController.swift in Sources */,
+				E859D752265822DE00A79C88 /* ScheduleNavigationController.swift in Sources */,
+				E859D749265822DE00A79C88 /* PickerTextField.swift in Sources */,
+				E859D758265822DE00A79C88 /* RepeatType.swift in Sources */,
+				E859D750265822DE00A79C88 /* Breed.swift in Sources */,
+				E859D73F265822DE00A79C88 /* Address.swift in Sources */,
+				E8A29410265BE66300388B66 /* ScheduleViewModel.swift in Sources */,
+				E859D755265822DE00A79C88 /* NewScheduleViewController.swift in Sources */,
+				E859D74D265822DE00A79C88 /* PetsCoSegmentedControl.swift in Sources */,
+				E859D73E265822DE00A79C88 /* Owner.swift in Sources */,
+				E859D757265822DE00A79C88 /* Schedule.swift in Sources */,
+				E8A2941A265C3CFA00388B66 /* PetViewModel.swift in Sources */,
+				E8A29414265C02FD00388B66 /* SectionHeader.swift in Sources */,
+				E859D759265822DE00A79C88 /* ScheduleLocationViewController.swift in Sources */,
+				E859D746265822DE00A79C88 /* UIViewExtensions.swift in Sources */,
+				E8A2940E2658563200388B66 /* PetCollectionViewCell.swift in Sources */,
+				E859D74A265822DE00A79C88 /* JSONManager.swift in Sources */,
 				E825B2B52656D5B00006280D /* AppDelegate.swift in Sources */,
-				E825B2B72656D5B00006280D /* SceneDelegate.swift in Sources */,
+				E8A29416265C043900388B66 /* SectionData.swift in Sources */,
+				E859D748265822DE00A79C88 /* CalendarExtensions.swift in Sources */,
+				E859D754265822DE00A79C88 /* EventTableViewCell.swift in Sources */,
+				E8A6DBB9265D43E10070C41D /* PetSectionTableViewCell.swift in Sources */,
+				E859D73B265822DE00A79C88 /* HomeNavigationController.swift in Sources */,
+				E859D742265822DE00A79C88 /* Entity.swift in Sources */,
+				E859D73D265822DE00A79C88 /* Database.swift in Sources */,
+				E859D739265822DD00A79C88 /* NewPetViewController.swift in Sources */,
+				E8A2941C265C4BE000388B66 /* ScheduleCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E825B2BA2656D5B00006280D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E825B2BB2656D5B00006280D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E825B2BF2656D5B10006280D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,12 +609,14 @@
 		};
 		E825B2C62656D5B10006280D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDA19BF4A0D283492676AAA7 /* Pods-Appzineo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N63WMA8228;
 				INFOPLIST_FILE = Appzineo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,18 +624,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lucasbighi.Appzineo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		E825B2C72656D5B10006280D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846B04CD29347DD83AF29215 /* Pods-Appzineo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N63WMA8228;
 				INFOPLIST_FILE = Appzineo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +645,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lucasbighi.Appzineo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

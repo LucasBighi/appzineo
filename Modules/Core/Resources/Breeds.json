@@ -1,0 +1,50 @@
+[
+   {
+      "type":"cachorro",
+      "name":"spitz alemão"
+   },
+   {
+      "type":"cachorro",
+      "name":"shih-tzu"
+   },
+   {
+      "type":"cachorro",
+      "name":"shih-tzu europeu"
+   },
+   {
+      "type":"cachorro",
+      "name":"border collie"
+   },
+   {
+      "type":"cachorro",
+      "name":"bulldog inglês"
+   },
+   {
+      "type":"cachorro",
+      "name":"bulldog francês"
+   },
+   {
+      "type":"cachorro",
+      "name":"sem raça definida"
+   },
+   {
+      "type":"gato",
+      "name":"sem raça definida"
+   },
+   {
+      "type":"coelho",
+      "name":"sem raça definida"
+   },
+   {
+      "type":"pássaro",
+      "name":"sem raça definida"
+   },
+   {
+      "type":"rato",
+      "name":"sem raça definida"
+   },
+   {
+      "type":"porco",
+      "name":"sem raça definida"
+   }
+]
