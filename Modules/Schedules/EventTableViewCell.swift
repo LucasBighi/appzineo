@@ -72,8 +72,8 @@ class EventTableViewCell: UITableViewCell {
         return components.day ?? 0
     }
     
-    func setup(withSchedule schedule: Schedule, ofPet pet: Pet) {
-        titleLabel.text = "\(schedule.type) do \(pet.name)"
+    func setup(withSchedule schedule: Schedule, ofPet pet: Pet?) {
+        titleLabel.text = pet?.name != nil ? "\(schedule.type) do \(pet!.name)" : schedule.type
         timeLabel.text = schedule.repeatType?.localizedDescription
         descriptionLabel.text = schedule.title
     }

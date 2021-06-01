@@ -19,7 +19,7 @@ class PetsCoSegmentedControl: UISegmentedControl {
     }()
     
     override func draw(_ rect: CGRect) {
-        setTitleTextAttributes( [NSAttributedString.Key.foregroundColor : tintColor ?? .black,
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor : tintColor ?? .black,
                                  NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold)], for: .selected)
         setTitleTextAttributes([NSAttributedString.Key.foregroundColor : tintColor ?? .black,
                                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)], for: .normal)

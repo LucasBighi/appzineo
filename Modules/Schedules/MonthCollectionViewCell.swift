@@ -60,7 +60,7 @@ class MonthCollectionViewCell: UICollectionViewCell {
     func setup(withDate date: Date, hasSchedules: Bool) {
         monthNameLabel.backgroundColor = .white
         markerView.isHidden = !hasSchedules
-        monthNameLabel.text = isSelected ? "Sel" : "\(date.component(.day))"
+        monthNameLabel.text = "\(date.component(.day))"
         monthNameLabel.textColor = date.isToday ? .purple : .black
         monthNameLabel.font = .systemFont(ofSize: 17)
     }

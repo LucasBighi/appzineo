@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .white
         tableView.register(PetSectionTableViewCell.self, forCellReuseIdentifier: "petCell")
-//        tableView.register(ScheduleCollectionViewCell.self, forCellReuseIdentifier: "scheduleCell")
+        tableView.register(ScheduleSectionTableViewCell.self, forCellReuseIdentifier: "scheduleCell")
         return tableView
     }()
 
@@ -27,9 +27,8 @@ class HomeViewController: UIViewController {
     
     private func getHomeData() {
         viewModel.getHomeData {
-            self.homeTableView.reloadData()
-//            self.homeTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-//            self.homeTableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            self.homeTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .right)
+            self.homeTableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .right)
         }
     }
     
@@ -38,9 +37,9 @@ class HomeViewController: UIViewController {
         homeTableView.delegate = self
         homeTableView.dataSource = self
         homeTableView.addAnchors([.top(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-                                        .leading(equalTo: view.leadingAnchor, constant: 10),
-                                        .trailing(equalTo: view.trailingAnchor, constant: -10),
-                                        .bottom(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)])
+                                  .leading(equalTo: view.leadingAnchor, constant: 10),
+                                  .trailing(equalTo: view.trailingAnchor, constant: -10),
+                                  .bottom(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)])
     }
 }
 
@@ -50,13 +49,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//viewModel.numberOfRows(in: section)
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "petCell", for: indexPath) as! PetSectionTableViewCell
-        if let pets = viewModel.sectionData(at: indexPath.section) as? [Pet] {
-            cell.setup(withPets: pets)
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "petCell", for: indexPath) as! PetSectionTableViewCell
+            if let pets = viewModel.sectionData(at: indexPath.section) as? [Pet] {
+                cell.setup(withPets: pets, presentingViewController: self)
+            }
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath) as! ScheduleSectionTableViewCell
+            if let schedules = viewModel.sectionData(at: indexPath.section) as? [Schedule] {
+                cell.setup(withSchedules: schedules, presentingViewController: self)
+            }
+            return cell
+        default:
+            break
         }
         return UITableViewCell()
     }
@@ -70,23 +81,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return headerLabel
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            if indexPath.row == 0 {
-                let navController = AppzineoModalNavigationController(rootViewController: NewPetViewController())
-                navController.modalDelegate = self
-                present(navController, animated: true)
-            } else {
-                //Show Pet details View Controller
-            }
-        default:
-            break
-        }
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 200
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

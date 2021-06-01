@@ -10,6 +10,7 @@ import UIKit
 class SchedulesViewController: UIViewController {
     
     private let viewModel = ScheduleViewModel.shared
+    private let petViewModel = PetViewModel.shared
     
     private let monthsPickerView: HorizontalPickerView = {
         let pickerView = HorizontalPickerView()
@@ -18,7 +19,12 @@ class SchedulesViewController: UIViewController {
     }()
     
     private let calendarCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.itemSize = CGSize(width: 35, height: 35)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.layer.cornerRadius = 10
         collectionView.register(MonthCollectionViewCell.self, forCellWithReuseIdentifier: "monthCell")
@@ -29,8 +35,6 @@ class SchedulesViewController: UIViewController {
         collectionView.layer.shadowRadius = 5
         collectionView.layer.masksToBounds = false
         collectionView.clipsToBounds = false
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -48,15 +52,6 @@ class SchedulesViewController: UIViewController {
         return calendar.monthSymbols.map { return $0.capitalized }
     }()
     
-    private let calendarCellWidth: CGFloat = 35
-    
-    private var schedules: [Schedule] = {
-        return [Schedule]()
-//        return Database.default.getObjects(ofType: Schedule.self).filter { $0.date.hasSame([.day, .month, .year], as: Date()) }
-    }()
-    
-    private var pets = [Pet]()
-    
     private var daysArray = [String]()
     private var selectedIndexPath: IndexPath = {
         return IndexPath(row: 5 + Date().firstWeekDay + Date().component(.day), section: 0)
@@ -73,21 +68,16 @@ class SchedulesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction))
-        add.tintColor = .white
-        navigationItem.rightBarButtonItem = add
+        navigationItem.rightBarButtonItem = AppzineoBarButtonItem(image: UIImage(named: "plus"), tint: .white) {
+            let navController = AppzineoModalNavigationController(rootViewController: NewScheduleViewController())
+            navController.modalDelegate = self
+            self.present(navController, animated: true)
+        }
+        
         setupPurpleView()
         setupMonthsPickerView()
         setupCalendarCollectionView()
         setupSchedulesTableView()
-        Database.default.get(Pet.self) { result in
-            switch result {
-            case .success(let pets):
-                self.pets = pets
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,17 +85,14 @@ class SchedulesViewController: UIViewController {
         monthsPickerView.selectRow(Date().component(.month) - 1, animated: false)
     }
     
+    private func schedulesInSelectedDate() -> [Schedule] {
+        return viewModel.schedules.filter { $0.date.hasSame([.day, .month, .year], as: selectedDate) }
+    }
+    
     private func getSchedules() {
-        
-        Database.default.get(Pet.self, completion: { result in
-            switch result {
-            case .success(let pets):
-                self.schedules = self.viewModel.getSchedules(inDate: self.selectedDate)
-                self.schedulesTableView.reloadSections(IndexSet(integer: 0), with: .fade)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        })
+        viewModel.getAllSchedules {
+            self.schedulesTableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        }
     }
     
     private func setupPurpleView() {
@@ -144,12 +131,6 @@ class SchedulesViewController: UIViewController {
                                .width(constant: 25, aspectRadio: true)])
     }
     
-    @objc private func addAction() {
-        let navController = AppzineoModalNavigationController(rootViewController: NewScheduleViewController())
-        navController.modalDelegate = self
-        present(navController, animated: true)
-    }
-    
     @objc private func previousAction() {
         let currentRow = monthsPickerView.selectedRow()
         if currentRow > 0 {
@@ -169,7 +150,7 @@ class SchedulesViewController: UIViewController {
         calendarCollectionView.delegate = self
         view.addSubview(calendarCollectionView)
         calendarCollectionView.addAnchors([.top(equalTo: monthsPickerView.bottomAnchor, constant: 10),
-                                           .height(constant: 7 * calendarCellWidth, aspectRadio: true),
+                                           .height(constant: CGFloat(7 * 35), aspectRadio: true),
                                            .centerX(equalTo: view.centerXAnchor)])
     }
     
@@ -195,34 +176,6 @@ class SchedulesViewController: UIViewController {
     }
 }
 
-extension SchedulesViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return schedules.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell {
-            cell.setup(withSchedule: schedules[indexPath.row], ofPet: pets[0])
-            return cell
-        }
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerLabel = UILabel()
-        headerLabel.backgroundColor = .white
-        if selectedDate.hasSame([.year, .month, .day], as: Date()) {
-            headerLabel.text = "Eventos hoje"
-        } else if selectedDate.hasSame([.year, .month], as: Date()) {
-            headerLabel.text = "Eventos do dia \(selectedDate.component(.day))"
-        } else {
-            headerLabel.text = "Eventos do dia \(selectedDate.withFormat("dd/MM"))"
-        }
-        headerLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        return headerLabel
-    }
-}
-
 extension SchedulesViewController: HorizontalPickerViewDelegate, HorizontalPickerViewDataSource {
     func pickerView(_ pickerView: HorizontalPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return calendarMonthSymbols[row]
@@ -245,40 +198,26 @@ extension SchedulesViewController: HorizontalPickerViewDelegate, HorizontalPicke
     }
 }
 
-extension SchedulesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SchedulesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return daysArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "monthCell", for: indexPath) as? MonthCollectionViewCell {
-            if let day = Int(daysArray[indexPath.row]) {
-                let month = selectedDate.component(.month)
-                let year = selectedDate.component(.year)
-                let cellDate = Date(day: day, month: month, year: year)
-                let cellSchedules = schedules.filter { $0.date.hasSame([.year, .month, .day], as: cellDate) }
-                cell.setup(withDate: cellDate, hasSchedules: !cellSchedules.isEmpty)
-                if selectedIndexPath == indexPath {
-                    cell.makeSelected()
-                }
-            } else {
-                cell.setup(withWeekDay: daysArray[indexPath.row], onMonth: selectedDate.component(.month))
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "monthCell", for: indexPath) as! MonthCollectionViewCell
+        if let day = Int(daysArray[indexPath.row]) {
+            let month = selectedDate.component(.month)
+            let year = selectedDate.component(.year)
+            let cellDate = Date(day: day, month: month, year: year)
+            let cellSchedules = viewModel.schedules(at: cellDate)
+            cell.setup(withDate: cellDate, hasSchedules: cellSchedules != nil)
+            if selectedIndexPath == indexPath {
+                cell.makeSelected()
             }
-            return cell
+        } else {
+            cell.setup(withWeekDay: daysArray[indexPath.row], onMonth: selectedDate.component(.month))
         }
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: calendarCellWidth, height: calendarCellWidth)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -288,11 +227,40 @@ extension SchedulesViewController: UICollectionViewDelegate, UICollectionViewDat
            let selectedDay = Int(daysArray[selectedIndexPath.row]) {
             let selectedCellDate = selectedDate.setting(selectedDay, toComponent: .day)
             cell.makeSelected()
-            let cellSchedules = schedules.filter { $0.date.hasSame([.year, .month, .day], as: selectedCellDate) }
-            selectedCell.setup(withDate: selectedCellDate, hasSchedules: !cellSchedules.isEmpty)
+            let cellSchedules = viewModel.schedules(at: selectedCellDate)
+            selectedCell.setup(withDate: selectedCellDate, hasSchedules: cellSchedules != nil)
             selectedIndexPath = indexPath
             selectedDate = selectedDate.setting(day, toComponent: .day)
         }
+    }
+}
+
+extension SchedulesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return schedulesInSelectedDate().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell {
+            let schedule = schedulesInSelectedDate()[indexPath.row]
+            cell.setup(withSchedule: schedule, ofPet: petViewModel.getPet(ofSchedule: schedule))
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel()
+        headerLabel.backgroundColor = .white
+        if selectedDate.hasSame([.year, .month, .day], as: Date()) {
+            headerLabel.text = "Eventos hoje"
+        } else if selectedDate.hasSame([.year, .month], as: Date()) {
+            headerLabel.text = "Eventos do dia \(selectedDate.component(.day))"
+        } else {
+            headerLabel.text = "Eventos do dia \(selectedDate.withFormat("dd/MM"))"
+        }
+        headerLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        return headerLabel
     }
 }
 

@@ -20,7 +20,8 @@ class HomeViewModel {
     private init() {}
     
     func getHomeData(_ completion: @escaping() -> Void) {
-        petViewModel.getPets { pets in
+        petViewModel.getPets {
+            let pets = self.petViewModel.pets
             self.sections[0].data = pets
             pets.forEach {
                 self.scheduleViewModel.getSchedules(ofPet: $0) { schedules in

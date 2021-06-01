@@ -9,20 +9,16 @@ import Foundation
 
 class ScheduleViewModel {
     
-    var schedules: [Schedule]
+    var schedules = [Schedule]()
     
-    private init() {
-        self.schedules = [Schedule]()
-    }
+    private init() {}
     
     static let shared = ScheduleViewModel()
     
     func getAllSchedules(_ completion: @escaping(() -> Void)) {
-        PetViewModel.shared.getPets { pets in
-            pets.forEach {
-                self.getSchedules(ofPet: $0) { schedules in
-                    self.schedules.append(contentsOf: schedules)
-                }
+        PetViewModel.shared.pets.forEach {
+            self.getSchedules(ofPet: $0) { schedules in
+                self.schedules.append(contentsOf: schedules)
             }
         }
         completion()
@@ -41,7 +37,7 @@ class ScheduleViewModel {
         }
     }
     
-    func getSchedules(inDate date: Date) -> [Schedule] {
+    func schedules(at date: Date) -> [Schedule]? {
         return schedules.filter { $0.date.hasSame([.day, .month, .year], as: date) }
     }
 }

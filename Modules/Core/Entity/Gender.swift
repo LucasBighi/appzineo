@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Gender: String, Codable {
     case boy
@@ -23,6 +24,17 @@ enum Gender: String, Codable {
             self = .girl
         } else {
             self = .undefined
+        }
+    }
+    
+    var symbol: UIImage? {
+        switch self {
+        case .boy:
+            return UIImage(named: "male")
+        case .girl:
+            return UIImage(named: "female")
+        case .undefined:
+            return nil
         }
     }
 }
